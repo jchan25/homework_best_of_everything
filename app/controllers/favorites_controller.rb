@@ -3,8 +3,12 @@ class FavoritesController < ApplicationController
     @favorites = Favorite.all
   end
 
+
   def show
     @favorite = Favorite.find(params[:id])
+    @user = User.find(@favorite.user_id)
+    @dish = Dish.find(@favorite.dish_id)
+    @venue = Venue.find(@favorite.venue_id)
   end
 
   def new

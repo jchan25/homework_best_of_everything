@@ -6,7 +6,13 @@
   <dt>Name</dt>
   <dd><%= @dish.name %></dd>
 
-  <dt>Cuisine ID</dt>
-  <dd><%= @dish.cuisine_id %></dd>
+  <dt>Cuisine</dt>
+  <dd><%= @cuisine.name %></dd>
 
+  <dt>Favorite</br>(by location and user)</dt>
+    <dd>
+    <%  @favorites.each do |favorite| %>
+      <li> <%= Venue.find(favorite.venue_id).name %> / <%= User.find(favorite.user_id).username %>
+    <% end %>
+    </dd>
 </dl>
